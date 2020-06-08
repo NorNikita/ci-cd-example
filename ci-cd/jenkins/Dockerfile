@@ -17,5 +17,4 @@ RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 USER jenkins
 
-EXPOSE 8080:8080
 VOLUME /var/run/docker.sock /var/run/docker.sock
