@@ -13,8 +13,10 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'docker-compose build'
-                sh 'docker-compose up -d'
+                dir('/') {
+                    sh 'docker-compose build'
+                    sh 'docker-compose up -d'
+                }
             }
         }
     }
