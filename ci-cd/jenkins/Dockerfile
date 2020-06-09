@@ -16,5 +16,3 @@ RUN sudo chmod +x /usr/local/bin/docker-compose
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 USER jenkins
-
-VOLUME /var/run/docker.sock /var/run/docker.sock
