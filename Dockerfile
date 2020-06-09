@@ -4,9 +4,8 @@ WORKDIR /application
 COPY src ./src
 COPY pom.xml .
 
-RUN mvn package
+RUN mvn package && rm -r ./src
 EXPOSE 9090
 
 WORKDIR ./target
-
 ENTRYPOINT java -jar $(grep -l -h ".jar" *)
