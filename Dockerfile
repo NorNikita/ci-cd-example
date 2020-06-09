@@ -4,7 +4,8 @@ WORKDIR /application
 COPY src ./src
 COPY pom.xml .
 
-RUN mvn package && rm -r ./src
+RUN mvn package \
+    && rm -r ./src
 EXPOSE 9090
 
 WORKDIR ./target
