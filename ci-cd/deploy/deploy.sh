@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/application/target/target
+cd ~/application/target
 
 pwd
 ls -l
