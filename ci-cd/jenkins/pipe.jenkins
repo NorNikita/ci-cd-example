@@ -17,5 +17,12 @@ pipeline {
                  sh 'sudo docker-compose up -d'
             }
         }
+        stage("send to remote server & deploy") {
+            steps {
+                 dir('ci-cd/deploy') {
+                      sh './deploy.sh'
+                 }
+            }
+        }
     }
 }

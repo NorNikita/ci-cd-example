@@ -1,12 +1,9 @@
-FROM maven:3.6.3-openjdk-8
+FROM maven:3.6.3
+
+VOLUME /myvolume
 
 WORKDIR /application
 COPY src ./src
 COPY pom.xml .
 
-RUN mvn package \
-    && rm -r ./src
-#EXPOSE 9090
-
-VOLUME /application
-#ENTRYPOINT java -jar $(grep -l -h ".jar" *)
+CMD mvn package && cp -a ./target /myvolume
