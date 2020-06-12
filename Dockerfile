@@ -1,6 +1,7 @@
 FROM maven:3.6.3
 
 VOLUME /myvolume
+RUN rm -r /myvolume/*
 
 WORKDIR /application
 COPY src ./src
