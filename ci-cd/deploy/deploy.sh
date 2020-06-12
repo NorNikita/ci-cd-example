@@ -1,8 +1,7 @@
 #!/bin/bash
 
-cd ~/application/target
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
 
-ls -l
-
-filename=$( find *.jar )
-scp -P 49209 ${filename} root@ovz3.9324240515.m61kn.vps.myjino.ru:~/
+docker build -t application .
+docker run -d -p 8080:8080 application echo "application started"
