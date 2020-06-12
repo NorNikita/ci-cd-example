@@ -1,12 +1,11 @@
 #!/bin/bash
 
-count=$(docker ps -aq -f status=running)
+cat ./prepare.sh | ssh -p 49180 root@ovz5.9324240515.pqj7n.vps.myjino.ru /bin/bash
+scp -P 49180 Dockerfile root@ovz5.9324240515.pqj7n.vps.myjino.ru:~/app
 
-if [ ${#count[*]} -ge 1 ] &&  [ ! -z ${count[0]} ]
-then
-docker stop ${count[*]}
-docker rm ${count[*]}
-fi
+cd ~/application/target
+filename=$( find *.jar )
+scp -P 49180 ${filename} root@ovz5.9324240515.pqj7n.vps.myjino.ru:~/app
 
-docker build -t application .
-docker run -d -p 8080:8080 application
+cd ~/workspace/build_deploy/ci-cd/deploy
+cat ./end.sh | ssh -p 49180 root@ovz5.9324240515.pqj7n.vps.myjino.ru /bin/bash
