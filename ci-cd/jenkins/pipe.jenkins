@@ -19,8 +19,9 @@ pipeline {
         }
         stage("send to remote server & deploy") {
             steps {
-                 sh 'cd ./ci-cd/deploy'
-                 sh './deploy.sh'
+                 dir('ci-cd/deploy') {
+                      sh './deploy.sh'
+                 }
             }
         }
     }
