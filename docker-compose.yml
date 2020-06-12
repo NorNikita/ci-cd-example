@@ -2,3 +2,5 @@ application:
   build: .
   ports:
     - "9090:9090"
+  volumes:
+    - /home/application:/application

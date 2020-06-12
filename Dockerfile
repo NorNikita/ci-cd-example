@@ -6,7 +6,7 @@ COPY pom.xml .
 
 RUN mvn package \
     && rm -r ./src
-EXPOSE 9090
+#EXPOSE 9090
 
-WORKDIR ./target
-ENTRYPOINT java -jar $(grep -l -h ".jar" *)
+VOLUME /application
+#ENTRYPOINT java -jar $(grep -l -h ".jar" *)
