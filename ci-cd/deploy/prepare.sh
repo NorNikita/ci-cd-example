@@ -1,6 +1,11 @@
 #!/bin/bash
 
+if [ -d app ]
+then
 rm -rf ~/app/*
+else
+mkdir ~/app
+fi
 
 count=$(docker ps -aq -f status=running)
 
