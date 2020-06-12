@@ -3,5 +3,5 @@ FROM openjdk:8
 WORKDIR /app
 COPY . .
 
-EXPOSE 9090
+EXPOSE 8080
 ENTRYPOINT java -jar $( find *.jar )
