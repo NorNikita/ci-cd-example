@@ -2,6 +2,7 @@
 
 cd ~/application/target
 
+ls -l
 filename=$( find *.jar )
 
 echo "rm -rf /app/*" | ssh -p 49180 root@ovz5.9324240515.pqj7n.vps.myjino.ru /bin/bash
