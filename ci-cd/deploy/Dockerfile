@@ -1,7 +1,7 @@
-FROM open-jdk-8
+FROM openjdk:8
 
 WORKDIR /app
-COPY /home/app .
+COPY /root/app .
 
 EXPOSE 9090
 ENTRYPOINT java -jar $( find *.jar )
