@@ -2,10 +2,7 @@
 
 count=$(docker ps -aq -f status=running)
 
-echo "count $count"
-
-
-if [ ${#count[*]} -gt 0 ]
+if [ ${#count[*]} -ge 1 ]
 then
 docker stop ${count[*]}
 docker rm ${count[*]}
